@@ -1,7 +1,10 @@
 ---
 title: "Activity 4"
-author: "Name"
+author: "Sajal"
 output: github_document
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 ## Data and packages
@@ -16,15 +19,8 @@ library(tidyverse)
 
 There is some other useful items to point out from this code chunk:
 
-1. It has been named (i.e., `load_packages`).
-  Notice that the name doesn't contain any spaces (I used `_` to separate words).
-  If you put spaces in your R code chunk names, you might encounter errors later when you Knit your document.
-  This is helpful because if you create a plot within a code chunk, the image will have that name!
-  Another helpful thing by naming code chunks is that it helps with document navigation.
-  In the upper right-hand corner of this `.Rmd` file, you can see the document outline <img src="README-img/document-outline-icon.png" alt="document outline" width = "20"/> icon.
-  Clicking on this provides you with a table of contents type view.
-  Another way to see this information by clicking on the "# Data and packages" at the bottom left-hand area of this `.Rmd` pane.
-2. There is a code chunk option of `message = FALSE`...
+1.  It has been named (i.e., `load_packages`). Notice that the name doesn't contain any spaces (I used `_` to separate words). If you put spaces in your R code chunk names, you might encounter errors later when you Knit your document. This is helpful because if you create a plot within a code chunk, the image will have that name! Another helpful thing by naming code chunks is that it helps with document navigation. In the upper right-hand corner of this `.Rmd` file, you can see the document outline <img src="README-img/document-outline-icon.png" alt="document outline" width="20"/> icon. Clicking on this provides you with a table of contents type view. Another way to see this information by clicking on the "\# Data and packages" at the bottom left-hand area of this `.Rmd` pane.
+2.  There is a code chunk option of `message = FALSE`...
 
 ### Messages
 
@@ -34,7 +30,6 @@ Now, switch this option to `message = TRUE` and knit your report again.
 Discuss what is different when the `message` option is turned on (`TRUE`) and turned off (`FALSE`) for the previous code chunk.
 
 **Response**:
-
 
 Turn the `message` option off and continue in this activity.
 
@@ -55,10 +50,10 @@ We will talk more about `::` later in the course.
 
 I try to be consistent with notation so here are some other forms that you might see in documents:
 
-- "`{package_name}`"; for example, `{readr}`.
-- "`function_name` function"; for example, `read_csv` function.
-- "*hint*"; for example, *arrange* the variable.
-- "**Specific Area**"; for example, **Environment** tab.
+-   "`{package_name}`"; for example, `{readr}`.
+-   "`function_name` function"; for example, `read_csv` function.
+-   "*hint*"; for example, *arrange* the variable.
+-   "**Specific Area**"; for example, **Environment** tab.
 
 ```{r load_data, message=FALSE}
 # Note that the :: method is redundant here
@@ -82,8 +77,7 @@ You can view the entire dataset by clicking on the name of the data frame in the
 
 Explore and describe what the `message` option does in `load_data` code chunk.
 
-**Response**:
-
+**Response**: The console output will be shown if message is turned on.
 
 Turn the `message` option off and continue in this activity.
 
@@ -94,60 +88,58 @@ First, knit this report and look at the output for the `load_data` code chunk.
 
 Now, edit the reading in data code in the `load_data` code chunk to instead be:
 
-```
-college_recent_grads <- read.csv("data/recent-grads.csv")
-```
+    college_recent_grads <- read.csv("data/recent-grads.csv")
 
 Then, knit this report and look at the output for the `load_data` code chunk.
-What did you notice about the output from these different functions? 
+What did you notice about the output from these different functions?
 When creating a report, which function would be better to use?
+A: readr::read_csv is better
 
 Now, edit the reading in data code in the `load_data` back to what is was originally:
 
-```
-college_recent_grads <- readr::read_csv("data/recent-grads.csv")
-```
+    college_recent_grads <- readr::read_csv("data/recent-grads.csv")
 
 If you were to load the data using `read.csv` in an `.Rmd` file and try to view it, it will print the ENTIRE dataset - this could make a short report many hundreds of pages depending on the size of your dataset.
 Historically, there were some other benefits of `readr::read_csv` over `read.csv`, but these have mostly been updated to no longer be issues.
 I strongly recommend that you use `readr::read_csv` instead of `read.csv`.
 
-![](README-img/noun_pause.png) **Planned Pause Point**: If you have any questions, contact your instructor. Otherwise feel free to continue on.
+![](README-img/noun_pause.png) **Planned Pause Point**: If you have any questions, contact your instructor.
+Otherwise feel free to continue on.
 
 ### Data Codebook
 
 Descriptions of the variables are provided below.
 
-| Header                        |  Description
-|:------------------------------|:--------------------------------
-|`rank`                         | Rank by median earnings
-|`major_code`                   | Major code, FO1DP in ACS PUMS
-|`major`                        | Major description
-|`major_category`               | Category of major from Carnevale et al
-|`total`                        | Total number of people with major
-|`sample_size`                  | Sample size (unweighted) of full-time, year-round ONLY (used for earnings)
-|`men`                          | Male graduates
-|`women`                        | Female graduates
-|`sharewomen`                   | Women as share of total
-|`employed`                     | Number employed (ESR == 1 or 2)
-|`employed_full_time`           | Employed 35 hours or more
-|`employed_part_time`           | Employed less than 35 hours
-|`employed_full_time_yearround` | Employed at least 50 weeks (WKW == 1) and at least 35 hours (WKHP >= 35)
-|`unemployed`                   | Number unemployed (ESR == 3)
-|`unemployment_rate`            | Unemployed / (Unemployed + Employed)
-|`median`                       | Median earnings of full-time, year-round workers
-|`p25th`                        | 25th percentile of earnings
-|`p75th`                        | 75th percentile of earnings
-|`college_jobs`                 | Number with job requiring a college degree
-|`non_college_jobs`             | Number with job not requiring a college degree
-|`low_wage_jobs`                | Number in low-wage service jobs
+| Header                         | Description                                                                |
+|:-------------------------------|:---------------------------------------------------------------------------|
+| `rank`                         | Rank by median earnings                                                    |
+| `major_code`                   | Major code, FO1DP in ACS PUMS                                              |
+| `major`                        | Major description                                                          |
+| `major_category`               | Category of major from Carnevale et al                                     |
+| `total`                        | Total number of people with major                                          |
+| `sample_size`                  | Sample size (unweighted) of full-time, year-round ONLY (used for earnings) |
+| `men`                          | Male graduates                                                             |
+| `women`                        | Female graduates                                                           |
+| `sharewomen`                   | Women as share of total                                                    |
+| `employed`                     | Number employed (ESR == 1 or 2)                                            |
+| `employed_full_time`           | Employed 35 hours or more                                                  |
+| `employed_part_time`           | Employed less than 35 hours                                                |
+| `employed_full_time_yearround` | Employed at least 50 weeks (WKW == 1) and at least 35 hours (WKHP \>= 35)  |
+| `unemployed`                   | Number unemployed (ESR == 3)                                               |
+| `unemployment_rate`            | Unemployed / (Unemployed + Employed)                                       |
+| `median`                       | Median earnings of full-time, year-round workers                           |
+| `p25th`                        | 25th percentile of earnings                                                |
+| `p75th`                        | 75th percentile of earnings                                                |
+| `college_jobs`                 | Number with job requiring a college degree                                 |
+| `non_college_jobs`             | Number with job not requiring a college degree                             |
+| `low_wage_jobs`                | Number in low-wage service jobs                                            |
 
 We can see that this data frame has a lot of useful information.
 In the remaining sections we will answer the following questions (I'll tell you what to do, you don't need to do anything yet):
 
-- Which major has the lowest unemployment rate?
-- Which major has the highest percentage of women?
-- Which STEM majors have incomes less than the median income of all majors?
+-   Which major has the lowest unemployment rate?
+-   Which major has the highest percentage of women?
+-   Which STEM majors have incomes less than the median income of all majors?
 
 Note that the ACS only asks [one question](https://www.census.gov/acs/www/about/why-we-ask-each-question/sex/) about a person's sexual identity and we are therefore missing a lot of important details about individuals.
 
@@ -164,7 +156,6 @@ As you write this process, think of it as a series of steps and it might be help
 
 **Response**:
 
-
 #### Using `{dplyr}`
 
 In the R code chunk below, name it `rearrange_college`.
@@ -172,7 +163,7 @@ In the R code chunk below, name it `rearrange_college`.
 Take the `college_recent_grads` dataset, *then* `arrange` the dataset by `unemployment_rate`.
 
 ```{r}
-
+rearrange_college <- college_recent_grads %>% arrange(unemployment_rate)
 ```
 
 We have all of the information to answer our question (i.e., "Which major has the lowest unemployment rate?"), but it is not in an effective format.
@@ -184,30 +175,38 @@ Also, notice that by default when you *arrange* by a variable, it defaults to *a
 Use the pipeline that you made in the `rearrange_college` code chunk as the start to this solution, **then** `select` only the variables `rank`, `major`, and `unemployment_rate`.
 Name this code chunk `lowest_unemploy`.
 
-```{r}
+```{r lowest_unemploy, message = FALSE}
+rearrange_college <- college_recent_grads %>%
+  select(rank, major, unemployment_rate) %>%
+  arrange(unemployment_rate)
 
+head(rearrange_college)
 ```
 
-**Response**:
+**Response**: Mathematics And Computer Science
 
-
-<img src="README-img/noun_pause.png" alt="pause" width = "20"/> <b>Planned Pause Point</b>: If you feel that you have a good understanding of these commands, feel free to start working on your project. The remainder of this activity will help to expand these commands.
+<img src="README-img/noun_pause.png" alt="pause" width="20"/> <b>Planned Pause Point</b>: If you feel that you have a good understanding of these commands, feel free to start working on your project.
+The remainder of this activity will help to expand these commands.
 
 ### Which major has the highest proportion of women?
 
-Using the `college_recent_grads` dataset and functions from `{dplyr}`, `arrange` the dataset by `sharewomen`, and `select` only `rank`, `major`, and `sharewomen`. 
+Using the `college_recent_grads` dataset and functions from `{dplyr}`, `arrange` the dataset by `sharewomen`, and `select` only `rank`, `major`, and `sharewomen`.
 Name your code chunk `highest_prop_women`.
 
-```{r}
+```{r highest_prop_women}
+highest_prop_women <- college_recent_grads %>%
+  select(rank, major, sharewomen) %>%
+  arrange(desc(sharewomen))
 
+head(highest_prop_women)
 ```
 
 Discuss your output as it relates to the research question.
 
-**Response**:
+**Response**: Early Childhood Education
 
-
-![](README-img/noun_pause.png) **Planned Pause Point**: If you have any questions, contact your instructor. Otherwise feel free to continue on.
+![](README-img/noun_pause.png) **Planned Pause Point**: If you have any questions, contact your instructor.
+Otherwise feel free to continue on.
 
 ### Which STEM majors have incomes less than the median income of all majors?
 
@@ -226,22 +225,32 @@ stem_categories <- c("Biology & Life Science",
 In our next activity we will see how to calculate summary statistics, but for now believe me that the median salary for all majors is $36,000.
 
 Using the `stem_categories` vector and knowledge that the median salary for all majors is $36,000 to *keep* the rows in the `college_recent_grads` data set that are in the STEM fields and earn *less* than the `median` salary of all majors.
-Only display the variables `major`, `p25th`, `median`, and `p75th`
-Name the code chunk `stem_low_salaries`.
+Only display the variables `major`, `p25th`, `median`, and `p75th` Name the code chunk `stem_low_salaries`.
+
+```{r stem_low_salaries}
+
+stem_low_salaries <- college_recent_grads %>%
+  filter(major_category %in% stem_categories, median < 36000) %>%
+  select(major, major_category, p25th, median, p75th) %>%
+  arrange(median)
+
+head(stem_low_salaries)
+
+```
 
 ```{r}
+median(college_recent_grads$median)
 
 ```
 
 Discuss your output as it relates to the research question.
 
-**Response**:
+**Response**: Zoology, Ecology, and Biology.
 
+![](README-img/noun_pause.png) **(Final) Planned Pause Point**: If you have any questions, contact your instructor.
+Otherwise feel free to continue on.
 
-![](README-img/noun_pause.png) **(Final) Planned Pause Point**: If you have any questions, contact your instructor. Otherwise feel free to continue on.
-
-
-Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push  to your GitHub repo.
+Knit, then stage everything listed in your **Git** pane, commit (with a meaningful commit message), and push to your GitHub repo.
 Go to GitHub and verify that your `activity04-data-pieplines.Rmd` file appears as you intended it to.
 
 You can now go back to the `README` file.
