@@ -55,7 +55,7 @@ I try to be consistent with notation so here are some other forms that you might
 -   "*hint*"; for example, *arrange* the variable.
 -   "**Specific Area**"; for example, **Environment** tab.
 
-```{r load_data, message=FALSE}
+```{r load_data, message = FALSE}
 # Note that the :: method is redundant here
 # because we have already loaded the {tidyverse}
 # and {readr} is included in this.
